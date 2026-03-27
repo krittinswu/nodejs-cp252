@@ -8,7 +8,6 @@ class UserData {
         initialUsersData.forEach(user => {
             const newUser = new User(user.name, user.email); 
             this.addUser(newUser);
-            //this.n = this.n + 1;
         });
     }
 
@@ -27,26 +26,33 @@ class UserData {
         }       
     }
 
+    removeTwoUser() {
+        const removed = [];
 
-    // Method to clear all users
+        // Remove up to two users, returning what was removed.
+        for (let i = 0; i < 2; i += 1) {
+            const user = this.removeOneUser();
+            if (user === null) {
+                break;
+            }
+            removed.push(user);
+        }
+
+        return removed;
+    }
+
+
+    // Method to get the number of users
     getUserCount() {
         return this.users.length;
     }
 
     // Method to clear all users
     clearUsers() {
-        this.users = 0;
+        this.users = [];
     }
-    
-    // Method to remove two users    
- 
-     removeTwoUser() {
-        this.removeOneUser();
-        this.removeOneUser();
-    }
- 
- 
 
+    
 
 }
 
