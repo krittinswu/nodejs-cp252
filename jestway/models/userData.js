@@ -35,14 +35,14 @@ class UserData {
 
     // Method to clear all users
     clearUsers() {
-        this.users = [];
+        this.users = 0;
     }
     
     // Method to remove two users    
  
      removeTwoUser() {
-        removeOneUser();
-        removeOneUser();
+        this.removeOneUser();
+        this.removeOneUser();
     }
  
  
