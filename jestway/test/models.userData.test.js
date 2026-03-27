@@ -19,18 +19,24 @@ describe('Count user', () => {
 })
 
 // Remove user
-describe('remove 2 user', () => {
-    test('Remove two', () => {
+describe('remove user', () => {
+    test('Remove one', () => {
       testUserData = new UserData();
-      testUserData.clearUsers();
-      testUserData.addUser(user);
-      testUserData.addUser(user);
-      testUserData.addUser(user);
       const userCountBefore = testUserData.getUserCount();
-      testUserData.removeTwoUser();
+      testUserData.removeOneUser();
       const userCountAfter = testUserData.getUserCount();
       const difUser = userCountBefore - userCountAfter;
+      expect(difUser).toEqual(1);
+    })
+
+    test('Remove two', () => {
+      testUserData = new UserData();
+      const userCountBefore = testUserData.getUserCount();
+      const removed = testUserData.removeTwoUser();
+      const userCountAfter = testUserData.getUserCount();
+      const difUser = userCountBefore - userCountAfter;
+
       expect(difUser).toEqual(2);
-  
+      
     })
 })
